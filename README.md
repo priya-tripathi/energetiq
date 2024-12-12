@@ -48,4 +48,48 @@ Sample Input for /POST
 }
 
 ```
+To start:
+For Postgres setup:
+```
+1. create database invoice_management;
+2. CREATE TABLE invoice (
+    id SERIAL PRIMARY KEY, 
+    invoice_id BIGINT NOT NULL UNIQUE, -- Ensure invoice_id is unique
+    invoice_number VARCHAR(255),
+    gross_amount DECIMAL(10, 2),
+    gst_amount DECIMAL(10, 2),
+    net_amount DECIMAL(10, 2),
+    receipt_date DATE,
+    payment_due_date DATE,
+    total_transaction_count INT,
+    validation_status VARCHAR(255) DEFAULT 'VALID',
+    validation_reason TEXT
+);
+3. CREATE TABLE transaction (
+    id SERIAL PRIMARY KEY, 
+    trxn_id BIGINT NOT NULL,
+    invoice_id BIGINT NOT NULL,
+    net_transaction_amount DECIMAL(10, 2),
+    gst_amount DECIMAL(10, 2),
+    date_received DATE,
+    transaction_date DATE,
+    FOREIGN KEY (invoice_id) REFERENCES invoice (invoice_id) -- References the unique invoice_id
+);
+4. Insert sample data -
+INSERT INTO invoice (
+    invoice_id, invoice_number, gross_amount, gst_amount, net_amount, receipt_date, payment_due_date, total_transaction_count
+) VALUES (
+    123, 'INV-001', 150.00, 10.00, 140.00, '2024-12-01', '2024-12-15', 2
+);
+INSERT INTO invoice (
+    invoice_id, invoice_number, gross_amount, gst_amount, net_amount, receipt_date, payment_due_date, total_transaction_count
+) VALUES (
+    123, 'INV-001', 150.00, 10.00, 140.00, '2024-12-01', '2024-12-15', 2
+);
+```
 
+For running the application -
+```
+1. mvn clean install
+2. ./mvnw spring-boot:run
+```
