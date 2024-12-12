@@ -93,3 +93,12 @@ For running the application -
 1. mvn clean install
 2. ./mvnw spring-boot:run
 ```
+Further Enhancements (If I had time)
+- Better Deserialisation (centralised)
+- better handling of fields validation status & validation reason
+- More abstraction (removing all the logic from service layer)
+- Better response messages (I am just returning the entire object, would have done in better way )
+- Logging (essential)
+- More tests
+- Security
+- and much more ...
