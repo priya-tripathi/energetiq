@@ -96,9 +96,9 @@ For running the application -
 Further Enhancements (If I had time)
 - Better Deserialisation (centralised)
 - better handling of fields validation status & validation reason
-- More abstraction (removing all the logic from service layer)
+- More abstraction (implementing abstract classes for further abstraction eg: InvoiceService & InvoiceServiceImpl)
 - Better response messages (I am just returning the entire object, would have done in better way )
-- Logging (essential)
+- Logging (slf4j, essential)
 - More tests
 - Security
 - and much more ...
