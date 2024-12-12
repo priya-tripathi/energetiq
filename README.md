@@ -49,7 +49,7 @@ Sample Input for /POST
 
 ```
 To start:
-For Postgres setup:
+For Postgres setup: (I have excluded datadirectory of postgres cluster from github, but it is included in the zip folder if needed)
 ```
 1. create database invoice_management;
 2. CREATE TABLE invoice (
